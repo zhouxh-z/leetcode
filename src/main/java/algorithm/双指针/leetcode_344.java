@@ -30,7 +30,7 @@ public class leetcode_344 {
             low = mid;
             high = mid+1;
         }
-        while (low>0){
+        while (low>=0){
             char c = s[low];
             s[low] = s[high];
             s[high] = c;
