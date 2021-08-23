@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.双指针;
 
 /**
  * @author zhouxh-z

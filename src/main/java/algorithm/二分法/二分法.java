@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.二分法;
 
 /**
  * 二分法查找数据
