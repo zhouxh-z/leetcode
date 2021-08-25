@@ -1,8 +1,5 @@
 package algorithm.广度_深度优先搜索;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * 有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。
  *
