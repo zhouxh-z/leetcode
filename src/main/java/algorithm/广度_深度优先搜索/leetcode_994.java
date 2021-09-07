@@ -17,9 +17,6 @@ import java.util.Queue;
  * 链接：https://leetcode-cn.com/problems/rotting-oranges
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
- *
- *
- *
  * 广度优先搜索
  * @author zhouxh_z
  */
