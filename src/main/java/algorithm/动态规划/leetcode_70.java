@@ -22,7 +22,7 @@ public class leetcode_70 {
 
     public static void main(String[] args) {
         leetcode_70 l  =new leetcode_70();
-        l.climbStairs(3);
+        l.climbStairs(10);
     }
 
 }
