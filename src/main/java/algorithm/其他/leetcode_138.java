@@ -50,6 +50,44 @@ public class leetcode_138 {
         return node;
     }
 
+    public Node copyRandomList1(Node head) {
+        Node tmp = head;
+        Node node = null;
+        Map<Node,Node> map = new HashMap<>();
+        while (tmp!=null){
+            Node node1 = null;
+            if (map.containsKey(tmp)) {
+                node1 = map.get(tmp);
+            }else {
+                node1 = new Node(tmp.val);
+                map.put(tmp,node1);
+            }
+            if(node == null){
+                node = node1;
+            }
+            if(tmp.next!=null){
+                if(map.containsKey(tmp.next)){
+                    node1.next = map.get(tmp.next);
+                }else {
+                    Node node2 = new Node(tmp.next.val);
+                    map.put(tmp.next,node2);
+                    node1.next = node2;
+                }
+            }
+            if(tmp.random != null){
+                if(map.containsKey(tmp.random)){
+                    node1.random = map.get(tmp.random);
+                }else {
+                    Node node2 = new Node(tmp.random.val);
+                    map.put(tmp.random,node2);
+                    node1.random = node2;
+                }
+            }
+            tmp = tmp.next;
+        }
+        return node;
+    }
+
     public static void main(String[] args) {
         Node node1 = new Node(7);
         Node node2 = new Node(13);
@@ -65,7 +103,7 @@ public class leetcode_138 {
         node4.random = node3;
         node5.random = node1;
         final leetcode_138 leetcode_138 = new leetcode_138();
-        leetcode_138.copyRandomList(node1);
+        leetcode_138.copyRandomList1(node1);
     }
 
 
