@@ -1,7 +1,7 @@
 package algorithm.动态规划;
 
 /**
- * 63. 不同路径 II
+ * 63. 不同路径 II  动态规划
  * @author zhouxianghui6
  * @description
  * @date 2025/2/8
