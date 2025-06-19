@@ -1,4 +1,8 @@
+import java.awt.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.LockSupport;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 1、java：Thread.start()方法 ----> 调用 start0() 本地方法 ---->JVM： jvm_startTread 方法 -----> linux OS : PTread Create_thread 创建一个线程
@@ -23,18 +27,10 @@ import java.util.concurrent.locks.LockSupport;
  */
 public class test {
 
-
-    public static void main(String[] args) {
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread().getName() +": 测试");
-            }
-        };
-        Thread t = new Thread(runnable);
-        t.start();
-        LockSupport.park();
-        LockSupport.unpark(t);
-
+    public static void main(String[] args) throws InterruptedException {
+        String a = "1";
+        Thread.sleep(10);
+        a.wait();
+        a.notify();
     }
 }
