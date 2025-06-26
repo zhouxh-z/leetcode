@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -27,10 +28,33 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class test {
 
-    public static void main(String[] args) throws InterruptedException {
-        String a = "1";
-        Thread.sleep(10);
-        a.wait();
-        a.notify();
+    public static void main(String[] args) {
+        ReentrantLock reentrantLock = new ReentrantLock();
+        ReentrantLock reentrantLock1 = new ReentrantLock();
+
+
+        new Thread(()->{
+            reentrantLock.lock();
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            reentrantLock1.lock();
+            System.out.println("111111111111");
+        }).start();
+
+        new Thread(()->{
+            reentrantLock1.lock();
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            reentrantLock.lock();
+            System.out.println("222222222222");
+
+        }).start();
+
     }
 }
