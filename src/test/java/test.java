@@ -1,6 +1,9 @@
+import design.代理模式.动态代理.CGLIB动态代理.ImageReal;
+
 import java.awt.*;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Semaphore;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
@@ -28,7 +31,12 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        Class<?> imageReal = Class.forName("design.代理模式.动态代理.CGLIB动态代理.ImageReal");
+        ImageReal instance = (ImageReal)imageReal.newInstance();
+        Method watch = imageReal.getMethod("watch");
+        watch.invoke(instance);
+//        instance.watch();
 
     }
 }
